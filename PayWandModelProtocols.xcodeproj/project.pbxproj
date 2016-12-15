@@ -10,6 +10,8 @@
 		753144071E02C77200E11E27 /* PayWandModelProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753143FD1E02C77200E11E27 /* PayWandModelProtocols.framework */; };
 		7531440C1E02C77200E11E27 /* PayWandModelProtocolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531440B1E02C77200E11E27 /* PayWandModelProtocolsTests.swift */; };
 		7531440E1E02C77200E11E27 /* PayWandModelProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 753144001E02C77200E11E27 /* PayWandModelProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		753144181E02C7AD00E11E27 /* CoreDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753144171E02C7AD00E11E27 /* CoreDataProtocols.swift */; };
+		7531441A1E02C7F800E11E27 /* ServerDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753144191E02C7F800E11E27 /* ServerDataProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		753144061E02C77200E11E27 /* PayWandModelProtocolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayWandModelProtocolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7531440B1E02C77200E11E27 /* PayWandModelProtocolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWandModelProtocolsTests.swift; sourceTree = "<group>"; };
 		7531440D1E02C77200E11E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		753144171E02C7AD00E11E27 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
+		753144191E02C7F800E11E27 /* ServerDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDataProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			children = (
 				753144001E02C77200E11E27 /* PayWandModelProtocols.h */,
 				753144011E02C77200E11E27 /* Info.plist */,
+				753144171E02C7AD00E11E27 /* CoreDataProtocols.swift */,
+				753144191E02C7F800E11E27 /* ServerDataProtocols.swift */,
 			);
 			path = PayWandModelProtocols;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 					753143FC1E02C77200E11E27 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = F53V3ZJV96;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					753144051E02C77200E11E27 = {
@@ -198,6 +205,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7531441A1E02C7F800E11E27 /* ServerDataProtocols.swift in Sources */,
+				753144181E02C7AD00E11E27 /* CoreDataProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +331,7 @@
 		753144121E02C77200E11E27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F53V3ZJV96;
@@ -334,6 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ParsPay.PayWandModelProtocols;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +352,7 @@
 		753144131E02C77200E11E27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F53V3ZJV96;
@@ -360,6 +372,7 @@
 		753144151E02C77200E11E27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = F53V3ZJV96;
 				INFOPLIST_FILE = PayWandModelProtocolsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +385,7 @@
 		753144161E02C77200E11E27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = F53V3ZJV96;
 				INFOPLIST_FILE = PayWandModelProtocolsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
