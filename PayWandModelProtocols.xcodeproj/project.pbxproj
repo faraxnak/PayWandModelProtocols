@@ -33,6 +33,8 @@
 		7531440D1E02C77200E11E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		753144171E02C7AD00E11E27 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
 		753144191E02C7F800E11E27 /* ServerDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDataProtocols.swift; sourceTree = "<group>"; };
+		7531441B1E02CEDF00E11E27 /* MIT License */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MIT License"; sourceTree = "<group>"; };
+		7531441C1E02CEDF00E11E27 /* PayWandModelProtocols.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PayWandModelProtocols.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 		753143F31E02C77200E11E27 = {
 			isa = PBXGroup;
 			children = (
+				7531441B1E02CEDF00E11E27 /* MIT License */,
+				7531441C1E02CEDF00E11E27 /* PayWandModelProtocols.podspec */,
 				753143FF1E02C77200E11E27 /* PayWandModelProtocols */,
 				7531440A1E02C77200E11E27 /* PayWandModelProtocolsTests */,
 				753143FE1E02C77200E11E27 /* Products */,
@@ -414,6 +418,7 @@
 				753144131E02C77200E11E27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		753144141E02C77200E11E27 /* Build configuration list for PBXNativeTarget "PayWandModelProtocolsTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +427,7 @@
 				753144161E02C77200E11E27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
