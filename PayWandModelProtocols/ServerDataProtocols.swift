@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+@objc public protocol GenericResponse {
+    
+    var status: Int { get set }
+    var message: String { get set }
+}
+
+@objc public protocol DictionaryResponse {
+    var dict: [ String: String ] { get set }
+}
