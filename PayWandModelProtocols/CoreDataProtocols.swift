@@ -10,10 +10,10 @@ import Foundation
 
 @objc public protocol CountryProtocol {
     
-    var name: String {get set}
-    var id: NSNumber {get set}
-    var phoneCode: String? {get set}
-    var code : String {get set}
-    var currency : String? {get set}
+    var name: String! {get set}
+    var id: NSNumber! {get set}
+    var phoneCode: String! {get set}
+    var code : String! {get set}
+    var currency : String! {get set}
     
 }
