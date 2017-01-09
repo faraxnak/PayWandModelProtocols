@@ -18,9 +18,9 @@ import CoreData
     
     func store()
     
-    init(coreDataObject : NSManagedObject)
+    init(coreDataObject : NSManagedObject?)
     
-    init(frcResult result : NSFetchRequestResult)
+    init(frcResult result : NSFetchRequestResult?)
     
 }
 
@@ -63,6 +63,8 @@ import CoreData
 //    static func fetch(username : String?, nationalCode : String?, firstName : String?, lastName : String?) -> UserP?
 //    
 //    static func setFRCPredicate()
+    
+    //func getWallets(onFinish : (Int) -> ())
 }
 
 @objc public protocol ProfileImageProtocol : DataP {
@@ -70,24 +72,62 @@ import CoreData
 }
 
 @objc public protocol TransactionP : DataP {
-//    var wallet : WalletProtocol
+    var type : TransactionTypeP? {get set}
+    var date : Date? {get set}
+    var cost : Double {get set}
     var amount : Double {get set}
+    var middleCurrency : CurrencyP? {get set}
+    var changedWallet : WalletP? {get set}
+    var beforeWalletAmount : Double {get set}
+    var afterWalletAmount : Double {get set}
+    var sourceName : String? {get set}
+    var sourceCurrency : CurrencyP? {get set}
+    var destinationMobileNumber : String? {get set}
+    var destinationName : String? {get set}
+    var destinationCurrency: CurrencyP? {get set}
+    var bankAccount : BankAccountP? {get set}
+    var exchangeRate : Double {get set}
+    var merchant : MerchantP? {get set}
+}
+
+@objc public protocol BankAccountP : DataP {
+    var type : Int {get set}
+    var cardNumber : String? {get set}
+    var IBAN : String? {get set}
+    var state : Int {get set}
+    var bankNameId : Int {get set}
+    var id : Int {get set}
+    var currency : CurrencyP? {get set}
+}
+
+@objc public protocol MerchantP : DataP {
+    var id : String? {get set}
+    var mDescription : String? {get set}
+    var serviceTypeId : Int {get set}
+    var title : String? {get set}
+    var websiteAddress : String? {get set}
+}
+
+@objc public protocol TransactionTypeP : DataP {
+    var id : Int {get set}
+    var name : String? {get set}
+    
 }
 
 @objc public protocol CurrencyP : DataP{
     var id : Int {get set}
-    var title : String {get set}
+    var title : String? {get set}
     var symbol : String? {get set}
 }
 
 @objc public protocol WalletP : DataP {
-    var walletCurrency : CurrencyP? {get set}
+    var currency : CurrencyP? {get set}
     var amount : Double {get set}
     var id : Int {get set}
     var title : String? {get set}
     var selected : Bool {get set}
-    var user : UserP {get set}
-    var walletTransaction : [TransactionP]? {get set}
+    var user : UserP? {get set}
+    var transactions : [TransactionP]? {get set}
 }
 
 @objc public protocol TokenP : DataP {
@@ -98,6 +138,51 @@ import CoreData
     var expires : Date? {get set}
 }
 
+@objc public protocol ExchangeModelP : DataP {
+    var currentCurrency : CurrencyP? {get set}
+    var destinationCurrency : CurrencyP? {get set}
+    var rate : Float {get set}
+    var transactionFee : Float {get set}
+}
+
+//struct BankAccountInfo : Decodable {
+//    var type : Int?
+//    var cardNumber : String?
+//    var IBAN : String?
+//    var state : Int?
+//    var bankNameId : Int?
+//    let id : Int?
+//    var currencyIdFK : Int?
+//    
+//    init?(json: JSON) {
+//        cardNumber = "CardNumber" <~~ json
+//        IBAN = "IBAN" <~~ json
+//        state = "BankStateIdFK" <~~ json
+//        bankNameId = "BankNameIdFK" <~~ json
+//        type = "BankTypeIdFK" <~~ json
+//        id = "BankAccountId" <~~ json
+//        currencyIdFK = "CurrencyIdFK" <~~ json
+//    }
+//    
+//    init(){
+//        id = 0
+//    }
+//}
+
+//struct MerchantInfo : Decodable {
+//    var id : String!
+//    var mDescription : String?
+//    var serviceTypeId : Int?
+//    var title : String?
+//    var websiteAddress : String?
+//    init?(json: JSON) {
+//        id = "MerchantId" <~~ json
+//        serviceTypeId = "ServiceTypeIdFK" <~~ json
+//        title = "MerchantTitle" <~~ json
+//        mDescription = "MerchantDescription" <~~ json
+//        websiteAddress = "MerchantWebsiteAddress" <~~ json
+//    }
+//}
 
 //class UserProfileMO : NSManagedObject {
 //    var address : String?
