@@ -112,6 +112,16 @@ import CoreData
     var id : Int {get set}
     var name : String? {get set}
     
+    var type : TransactionTypeE { get }
+}
+
+@objc public enum TransactionTypeE : Int {
+    case select = 0
+    case topup = 1
+    case send = 2
+    case exchange = 3
+    case cashOut = 4
+    case buy = 5
 }
 
 @objc public protocol CurrencyP : DataP{
