@@ -27,7 +27,7 @@ import CoreData
 @objc public protocol CountryP : DataP {
     
     var name: String? {get set}
-    var id: NSNumber? {get set}
+    var id: Int {get set}
     var phoneCode: String? {get set}
     var code : String? {get set}
     var currency : String? {get set}
@@ -121,10 +121,19 @@ import CoreData
     case buy = 5
 }
 
-@objc public protocol CurrencyP : DataP{
+@objc public protocol CurrencyP : DataP, NSObjectProtocol {
     var id : Int {get set}
     var title : String? {get set}
     var symbol : String? {get set}
+}
+
+extension Equatable where Self : CurrencyP
+{
+    
+}
+
+public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
+    return lhs?.id == rhs?.id
 }
 
 @objc public protocol WalletP : DataP {
@@ -135,10 +144,12 @@ import CoreData
     var selected : Bool {get set}
     var user : UserP? {get set}
     var transactions : [TransactionP]? {get set}
+    
+    func amountString() -> String
 }
 
 @objc public protocol TokenP : DataP {
-    var accessToken : String {get set}
+    var accessToken : String? {get set}
     var tokenType : String? {get set}
     var expiresIn : NSNumber? {get set}
     var issued : Date? {get set}
