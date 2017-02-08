@@ -24,7 +24,7 @@ import CoreData
     
 }
 
-@objc public protocol CountryP : DataP {
+@objc public protocol CountryP : DataP, NSObjectProtocol {
     
     var name: String? {get set}
     var id: Int {get set}
@@ -35,6 +35,15 @@ import CoreData
 //    static func fetch(id : NSNumber?, name : String?, code : String?) -> CountryP?
 //    
 //    static func setCountryFRC(countryFRC fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, id : NSNumber?, name : String?, code : String?)
+}
+
+extension Equatable where Self : CountryP
+{
+    
+}
+
+public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
+    return lhs?.id == rhs?.id
 }
 
 @objc public protocol UserP : DataP {
