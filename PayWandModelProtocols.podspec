@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PayWandModelProtocols"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Protocols defined to access server and core data"
 
   # This description is used to generate tags and improve search results.

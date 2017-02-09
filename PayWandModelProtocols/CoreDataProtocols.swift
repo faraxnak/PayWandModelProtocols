@@ -24,7 +24,7 @@ import CoreData
     
 }
 
-@objc public protocol CountryP : DataP, NSObjectProtocol {
+@objc public protocol CountryP : DataP {
     
     var name: String? {get set}
     var id: Int {get set}
