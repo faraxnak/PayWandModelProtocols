@@ -30,7 +30,7 @@ import CoreData
     var id: Int {get set}
     var phoneCode: String? {get set}
     var code : String? {get set}
-    var currency : String? {get set}
+    var currency : CurrencyP? {get set}
     
 //    static func fetch(id : NSNumber?, name : String?, code : String?) -> CountryP?
 //    
