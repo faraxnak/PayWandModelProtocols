@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 
 @objc public protocol DataP {
-    func updateServer(onFinish : () -> ())
+//    func updateServer(onFinish : () -> ())
     
-    func reloadFromServer(onFinish : () -> ())
+//    func reloadFromServer(onFinish : () -> ())
     
     //static func fetch(params : DataProtocol) -> DataProtocol
     
-    func store()
+//    func store()
     
     init(coreDataObject : NSManagedObject?)
     
@@ -101,9 +101,15 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var cardNumber : String? {get set}
     var IBAN : String? {get set}
     var state : Int {get set}
-    var bankNameId : Int {get set}
+    //var bankNameId : Int {get set}
+    var bankName : BankNameP? {get set}
     var id : Int {get set}
     var currency : CurrencyP? {get set}
+}
+
+@objc public protocol BankNameP {
+    var title : String? {get set}
+    var id : Int {get set}
 }
 
 @objc public protocol MerchantP : DataP {
