@@ -113,14 +113,29 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var id : Int {get set}
 }
 
+@objc public enum BankAccountStateE : Int {
+    case inProgress = 0
+    case approved = 1
+    case rejected = 2
+}
+
 @objc public protocol BankAccountStateP {
-    var title : String? {get set}
-    var id : Int {get set}
+    var title : String? {get}
+//    var id : Int {get set}
+    var state : BankAccountStateE {get set}
+}
+
+@objc public enum BankAccountTypeE : Int {
+    case none = 0
+    case card = 1
+    case iban = 2
 }
 
 @objc public protocol BankAccountTypeP {
-    var title : String? {get set}
-    var id : Int {get set}
+    var title : String? { get }
+//    var id : Int {get set}
+    
+    var type : BankAccountTypeE {get set}
 }
 
 @objc public protocol MerchantP : DataP {
