@@ -94,13 +94,14 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var bankAccount : BankAccountP? {get set}
     var exchangeRate : Double {get set}
     var merchant : MerchantP? {get set}
+    var tags : [TagP]? {get set}
 }
 
 @objc public protocol BankAccountP : DataP {
-    var type : Int {get set}
+    var type : BankAccountTypeP? {get set}
     var cardNumber : String? {get set}
     var IBAN : String? {get set}
-    var state : Int {get set}
+    var state : BankAccountStateP? {get set}
     //var bankNameId : Int {get set}
     var bankName : BankNameP? {get set}
     var id : Int {get set}
@@ -108,6 +109,16 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 }
 
 @objc public protocol BankNameP {
+    var title : String? {get set}
+    var id : Int {get set}
+}
+
+@objc public protocol BankAccountStateP {
+    var title : String? {get set}
+    var id : Int {get set}
+}
+
+@objc public protocol BankAccountTypeP {
     var title : String? {get set}
     var id : Int {get set}
 }
@@ -125,6 +136,10 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var name : String? {get set}
     
     var type : TransactionTypeE { get }
+}
+
+@objc public protocol TagP : DataP, NSObjectProtocol {
+    var title : String? {get set}
 }
 
 @objc public enum TransactionTypeE : Int {
