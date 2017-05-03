@@ -10,13 +10,6 @@ import Foundation
 import CoreData
 
 @objc public protocol DataP {
-//    func updateServer(onFinish : () -> ())
-    
-//    func reloadFromServer(onFinish : () -> ())
-    
-    //static func fetch(params : DataProtocol) -> DataProtocol
-    
-//    func store()
     
     init(coreDataObject : NSManagedObject?)
     
@@ -31,10 +24,6 @@ import CoreData
     var phoneCode: String? {get set}
     var code : String? {get set}
     var currency : CurrencyP? {get set}
-    
-//    static func fetch(id : NSNumber?, name : String?, code : String?) -> CountryP?
-//    
-//    static func setCountryFRC(countryFRC fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, id : NSNumber?, name : String?, code : String?)
 }
 
 extension Equatable where Self : CountryP
@@ -208,52 +197,22 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var transactionFee : Float {get set}
 }
 
+@objc public enum InfoState : Int {
+    case verified
+    case checking
+    case refected
+}
 
-//
-//class ProfileImageMO : NSManagedObject {
-//    @NSManaged var imageData : Data?
-//    var image : UIImage? {
-//        get {
-//            if (imageData != nil) {
-//                return UIImage(data: imageData!)
-//            } else {
-//                return nil
-//            }
-//        }
-//        set {
-//            imageData = UIImageJPEGRepresentation(newValue!, 1)
-//            do {
-//                try DataController.sharedInstance.managedObjectContext.save()
-//            } catch {
-//                print("error in saving image : \(error)")
-//            }
-//        }
-//    }
-//}
-//
-//class AccountInfoMO : NSManagedObject {
-//    @NSManaged var ownerInfo : String
-//    @NSManaged var ownerName : String?
-//    @NSManaged var ownerNextInfo : String?
-//    @NSManaged var accountType : AccountTypeMO?
-//}
-//
-//class AccountTypeMO : NSManagedObject {
-//    @NSManaged var id : NSNumber
-//    @NSManaged var name : String
-//    
-//    enum AccountType : NSNumber {
-//        case select = 0
-//        case card = 1
-//        case bankAccount = 2
-//        case payPal = 3
-//        case payWand = 4
-//    }
-//    
-//    var type : AccountType {
-//        get {
-//            return AccountType.init(rawValue: id)!
-//        }
-//    }
-//}
+@objc public enum DocumentTypeE: Int {
+    case none
+    case passport
+    case visa
+    case ticket
+    case address
+}
+
+@objc public protocol DocumentP: DataP {
+    var image: UIImage? {get set}
+    var type: DocumentTypeE {get set}
+}
 
