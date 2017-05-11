@@ -95,6 +95,9 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var bankName : BankNameP? {get set}
     var id : Int {get set}
     var currency : CurrencyP? {get set}
+    var institutionNumber: String? {get set}
+    var branchFullAddress: String? {get set}
+    var branchNumber: String? {get set}
 }
 
 @objc public protocol BankNameP {
