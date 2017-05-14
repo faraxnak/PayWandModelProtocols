@@ -84,6 +84,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var exchangeRate : Double {get set}
     var merchant : MerchantP? {get set}
     var tags : [TagP]? {get set}
+    var payer: PayerP? {get set}
 }
 
 @objc public protocol BankAccountP : DataP {
@@ -217,5 +218,14 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
 @objc public protocol DocumentP: DataP {
     var image: UIImage? {get set}
     var type: DocumentTypeE {get set}
+}
+
+@objc public protocol PayerP: DataP {
+    var firstName: String? {get set}
+    var lastName: String? {get set}
+    var phone: String? {get set}
+    var email: String? {get set}
+    var address: String? {get set}
+    var country: String? {get set}
 }
 
