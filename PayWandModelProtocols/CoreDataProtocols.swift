@@ -85,6 +85,11 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var merchant : MerchantP? {get set}
     var tags : [TagP]? {get set}
     var payer: PayerP? {get set}
+    var fees: [FeeP]? {get set}
+    var subTransaction: TransactionP? {get set}
+    var mainTransaction: TransactionP? {get set}
+    var amountInUserCurrency: Double {get set}
+    var state: TransactionStateP? {get set}
 }
 
 @objc public protocol BankAccountP : DataP {
@@ -229,3 +234,24 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var country: String? {get set}
 }
 
+@objc public protocol FeeP: DataP {
+    var type: Int {get set}
+    var subType: Int {get set}
+    var currency: CurrencyP? {get set}
+    var amount: Double {get set}
+}
+
+@objc public protocol TransactionStateP : DataP, NSObjectProtocol {
+    var id : Int {get set}
+    var title : String? {get set}
+    
+    var type : TransactionStateE { get }
+}
+
+@objc public enum TransactionStateE : Int {
+    case pending = 0
+    case approved = 1
+    case refunded = 2
+    case failed = 3
+    case rolledBack = 4
+}
