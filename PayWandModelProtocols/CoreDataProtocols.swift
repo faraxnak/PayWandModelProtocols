@@ -90,6 +90,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var mainTransaction: TransactionP? {get set}
     var amountInUserCurrency: Double {get set}
     var state: TransactionStateP? {get set}
+    var net: Double {get set}
 }
 
 @objc public protocol BankAccountP : DataP {
@@ -161,7 +162,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     case send = 2
     case exchange = 3
     case cashOut = 4
-    case buy = 5
+    case purchase = 5
 }
 
 @objc public protocol CurrencyP : DataP, NSObjectProtocol {
