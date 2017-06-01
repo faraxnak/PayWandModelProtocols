@@ -221,9 +221,13 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     case address
 }
 
+@objc public protocol DocumentTypeP: DataP {
+    var title: String {get set}
+}
+
 @objc public protocol DocumentP: DataP {
     var image: UIImage? {get set}
-    var type: DocumentTypeE {get set}
+    var type: DocumentTypeP? {get set} //DocumentTypeE {get set}
 }
 
 @objc public protocol PayerP: DataP {
