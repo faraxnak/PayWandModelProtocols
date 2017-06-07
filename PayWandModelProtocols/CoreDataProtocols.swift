@@ -210,7 +210,7 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
 @objc public enum InfoState : Int {
     case verified
     case checking
-    case refected
+    case rejected
 }
 
 @objc public enum DocumentTypeE: Int {
@@ -227,7 +227,10 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
 
 @objc public protocol DocumentP: DataP {
     var image: UIImage? {get set}
+    var url: String? {get set}
+    //var state: String? {get set}
     var type: DocumentTypeP? {get set} //DocumentTypeE {get set}
+    var stateE : InfoState {get set}
 }
 
 @objc public protocol PayerP: DataP {
