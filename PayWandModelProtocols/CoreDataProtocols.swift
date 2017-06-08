@@ -263,3 +263,13 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     case failed = 3
     case rolledBack = 4
 }
+
+@objc public protocol PassportP : DataP {
+    var issueDate: Date? {get set}
+    var expireDate: Date? {get set}
+    var fatherName: String? {get set}
+    var country: CountryP? {get set}
+    var birthplaceCountry : CountryP? {get set}
+    var number : String? {get set}
+    var state: InfoState {get set}
+}
