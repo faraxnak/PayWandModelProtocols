@@ -36,9 +36,9 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 }
 
 @objc public protocol UserP : DataP {
-    var address : String? {get set}
+    //var address : String? {get set}
     var birthDate : Date? {get set}
-    var city : String? {get set}
+    //var city : String? {get set}
     var email : String? {get set}
     var firstName : String? {get set}
     var lastName : String? {get set}
@@ -46,7 +46,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var password : String? {get set}
     var phoneNumber : String? {get set}
     var pin : String? {get set}
-    var postalCode : String? {get set}
+    //var postalCode : String? {get set}
     var username : String {get set}
     var country : CountryP? {get set}
     var profileImage : UIImage? {get set}
@@ -54,11 +54,11 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var wallets : [WalletP]? {get set}
     var currency : CurrencyP? {get set}
     var token : TokenP? {get set}
-    var state : String? {get set}
+    //var province : String? {get set}
     var isPhoneVerified : Bool {get set}
     var isAccountCreated: Bool {get set}
-    
-    
+    var addressInfo: AddressP? {get set}
+    var verificationState: VerificationStateP? {get set}
 }
 
 
@@ -213,6 +213,12 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     case rejected
 }
 
+public struct InfoStateString {
+    public static let checking = "Pending"
+    public static let verified = "Approved"
+    public static let rejected = "Failed"
+}
+
 @objc public enum DocumentTypeE: Int {
     case none
     case passport
@@ -272,4 +278,19 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var birthplaceCountry : CountryP? {get set}
     var number : String? {get set}
     var state: InfoState {get set}
+}
+
+@objc public protocol AddressP: DataP {
+    var province: String? {get set}
+    var city: String? {get set}
+    var postalCode: String? {get set}
+    var address: String? {get set}
+}
+
+@objc public protocol VerificationStateP: DataP {
+    var mobileNumberConfirmed: Bool {get set}
+    var emailConfirmed: Bool {get set}
+    var passportStatus: InfoState {get set}
+    var profileImageStatus: InfoState {get set}
+    var addressConfirmed: Bool {get set}
 }
