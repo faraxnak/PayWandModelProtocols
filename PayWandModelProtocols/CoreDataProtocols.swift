@@ -237,6 +237,7 @@ public struct InfoStateString {
     //var state: String? {get set}
     var type: DocumentTypeP? {get set} //DocumentTypeE {get set}
     var stateE : InfoState {get set}
+    var uploaded: Bool {get set}
 }
 
 @objc public protocol PayerP: DataP {
@@ -270,6 +271,12 @@ public struct InfoStateString {
     case rolledBack = 4
 }
 
+@objc public enum GenderE: Int {
+    case female = 0
+    case male = 1
+    case other = 2
+}
+
 @objc public protocol PassportP : DataP {
     var issueDate: Date? {get set}
     var expireDate: Date? {get set}
@@ -278,6 +285,9 @@ public struct InfoStateString {
     var birthplaceCountry : CountryP? {get set}
     var number : String? {get set}
     var state: InfoState {get set}
+    var gender : GenderE {get}
+    var birthdate : Date? {get set}
+    
 }
 
 @objc public protocol AddressP: DataP {
