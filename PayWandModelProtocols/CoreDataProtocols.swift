@@ -121,7 +121,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 @objc public protocol BankAccountStateP {
     var title : String? {get}
 //    var id : Int {get set}
-    var state : BankAccountStateE {get set}
+    var state : InfoState {get set}
 }
 
 @objc public enum BankAccountTypeE : Int {
@@ -284,8 +284,8 @@ public struct InfoStateString {
     var country: CountryP? {get set}
     var birthplaceCountry : CountryP? {get set}
     var number : String? {get set}
-    var state: InfoState {get set}
-    var gender : GenderE {get}
+    //var state: InfoState {get set}
+    var gender : GenderE {get set}
     var birthdate : Date? {get set}
     
 }
