@@ -48,7 +48,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var pin : String? {get set}
     //var postalCode : String? {get set}
     var username : String {get set}
-    var country : CountryP? {get set}
+    //var country : CountryP? {get set}
     var profileImage : UIImage? {get set}
     var phoneVerificationCode : String? {get set}
     var wallets : [WalletP]? {get set}
@@ -97,8 +97,8 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var type : BankAccountTypeP? {get set}
     var cardNumber : String? {get set}
     var IBAN : String? {get set}
-    var state : BankAccountStateP? {get set}
-    //var bankNameId : Int {get set}
+    var state : String? {get set}
+    var stateE: InfoState {get set}
     var bankName : BankNameP? {get set}
     var id : Int {get set}
     var currency : CurrencyP? {get set}
@@ -118,11 +118,10 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     case rejected = 2
 }
 
-@objc public protocol BankAccountStateP {
-    var title : String? {get}
-//    var id : Int {get set}
-    var state : InfoState {get set}
-}
+//@objc public protocol BankAccountStateP {
+//    var title : String? {get}
+//    var state : InfoState {get set}
+//}
 
 @objc public enum BankAccountTypeE : Int {
     case none = 0
@@ -217,6 +216,19 @@ public struct InfoStateString {
     public static let checking = "Pending"
     public static let verified = "Approved"
     public static let rejected = "Failed"
+    
+    public static func getState(title: String) -> InfoState{
+        switch title {
+        case checking:
+            return .checking
+        case verified:
+            return .verified
+        case rejected:
+            return .rejected
+        default:
+            return .checking
+        }
+    }
 }
 
 @objc public enum DocumentTypeE: Int {
@@ -295,6 +307,7 @@ public struct InfoStateString {
     var city: String? {get set}
     var postalCode: String? {get set}
     var address: String? {get set}
+    var country: CountryP? {get set}
 }
 
 @objc public protocol VerificationStateP: DataP {
