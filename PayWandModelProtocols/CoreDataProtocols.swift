@@ -213,9 +213,9 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
 }
 
 public struct InfoStateString {
-    public static let checking = "Pending"
+    public static let checking = "InProgress"
     public static let verified = "Approved"
-    public static let rejected = "Failed"
+    public static let rejected = "Rejected"
     
     public static func getState(title: String) -> InfoState{
         switch title {
@@ -252,6 +252,14 @@ public struct InfoStateString {
     var uploaded: Bool {get set}
 }
 
+@objc public protocol TouristCardP: DataP {
+    var pan: String? {get set}
+    var expirationDate: Date? {get set}
+    var requested: Bool {get set}
+    var stateE : InfoState {get set}
+    var deliveryAddress: AddressP? {get set}
+}
+
 @objc public protocol PayerP: DataP {
     var firstName: String? {get set}
     var lastName: String? {get set}
@@ -266,6 +274,12 @@ public struct InfoStateString {
     var subType: Int {get set}
     var currency: CurrencyP? {get set}
     var amount: Double {get set}
+}
+
+@objc public protocol FaqP : DataP {
+    var type: String? {get set}
+    var answer: String? {get set}
+    var question: String? {get set}
 }
 
 @objc public protocol TransactionStateP : DataP, NSObjectProtocol {
@@ -308,6 +322,9 @@ public struct InfoStateString {
     var postalCode: String? {get set}
     var address: String? {get set}
     var country: CountryP? {get set}
+    var addressDescription: String? {get set}
+    var lat: String? {get set}
+    var long: String? {get set}
 }
 
 @objc public protocol VerificationStateP: DataP {
