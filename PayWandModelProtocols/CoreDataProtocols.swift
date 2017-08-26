@@ -69,7 +69,6 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 @objc public protocol TransactionP : DataP {
     var type : TransactionTypeP? {get set}
     var date : Date? {get set}
-    var cost : Double {get set}
     var amount : Double {get set}
     var middleCurrency : CurrencyP? {get set}
     var changedWallet : WalletP? {get set}
