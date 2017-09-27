@@ -203,6 +203,7 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var destinationCurrency : CurrencyP? {get set}
     var rate : Float {get set}
     var transactionFee : Float {get set}
+    var lastUpdateTime : Date? {get set}
 }
 
 @objc public enum InfoState : Int {
