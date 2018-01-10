@@ -141,6 +141,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var serviceTypeId : Int {get set}
     var title : String? {get set}
     var websiteAddress : String? {get set}
+    var logo : UIImage? {get set}
 }
 
 @objc public protocol TransactionTypeP : DataP, NSObjectProtocol {
