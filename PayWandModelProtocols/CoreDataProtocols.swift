@@ -101,14 +101,27 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var bankName : BankNameP? {get set}
     var id : Int {get set}
     var currency : CurrencyP? {get set}
-    var institutionNumber: String? {get set}
+    var swiftCode : SwiftCodeP? {get set}
+//    var institutionNumber: String? {get set}
     var branchFullAddress: String? {get set}
-    var branchNumber: String? {get set}
+//    var branchNumber: String? {get set}
 }
 
 @objc public protocol BankNameP {
     var title : String? {get set}
     var id : Int {get set}
+}
+
+@objc public protocol SwiftCodeP {
+    var code : String? {get set}
+    var address: AddressP? {get set}
+    var bankName: String? {get set}
+}
+
+@objc public protocol IbanP {
+    var iban : String? {get set}
+    var accountNumber: String? {get set}
+    var swiftCode: SwiftCodeP? {get set}
 }
 
 @objc public enum BankAccountStateE : Int {
