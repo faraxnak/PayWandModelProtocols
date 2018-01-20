@@ -118,6 +118,22 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var bankName: String? {get set}
 }
 
+@objc public protocol ReservationP {
+    var id : Int {get set}
+    var state: InfoState {get set}
+    var amount: Double {get set}
+    var cancellationFee: Double {get set}
+    var date: Date? {get set}
+    var failureInfo : FailureInfoP? {get set}
+    var merchant : MerchantP? {get set}
+    var currency : CurrencyP? {get set}
+}
+
+@objc public protocol FailureInfoP {
+    var title : String? {get set}
+    var description : String? { get set}
+}
+
 @objc public protocol IbanP {
     var iban : String? {get set}
     var accountNumber: String? {get set}
@@ -169,12 +185,13 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 }
 
 @objc public enum TransactionTypeE : Int {
-    case select = 0
+    case none = 0
     case topup = 1
     case send = 2
     case exchange = 3
     case cashOut = 4
     case purchase = 5
+    case touristCard = 7
 }
 
 @objc public protocol CurrencyP : DataP, NSObjectProtocol {
@@ -238,6 +255,8 @@ public struct InfoStateString {
         case verified:
             return .verified
         case rejected:
+            return .rejected
+        case "Failed":
             return .rejected
         default:
             return .checking
