@@ -70,15 +70,15 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var type : TransactionTypeP? {get set}
     var date : Date? {get set}
     var amount : Double {get set}
-    var middleCurrency : CurrencyP? {get set}
+//    var middleCurrency : CurrencyP? {get set}
     var changedWallet : WalletP? {get set}
     var beforeWalletAmount : Double {get set}
     var afterWalletAmount : Double {get set}
     var sourceName : String? {get set}
-    var sourceCurrency : CurrencyP? {get set}
+    var currency : CurrencyP? {get set}
     var destinationMobileNumber : String? {get set}
     var destinationName : String? {get set}
-    var destinationCurrency: CurrencyP? {get set}
+//    var destinationCurrency: CurrencyP? {get set}
     var bankAccount : BankAccountP? {get set}
     var exchangeRate : Double {get set}
     var merchant : MerchantP? {get set}
