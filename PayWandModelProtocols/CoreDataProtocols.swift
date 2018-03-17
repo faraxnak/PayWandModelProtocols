@@ -85,11 +85,38 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var tags : [TagP]? {get set}
     var payer: PayerP? {get set}
     var fees: [FeeP]? {get set}
+    var sender : P2PInfoP? {get set}
+    var receiver : P2PInfoP? {get set}
     var subTransaction: TransactionP? {get set}
     var mainTransaction: TransactionP? {get set}
-    var amountInUserCurrency: Double {get set}
+    var amountInUserCurrency: AmountInUserCurrencyP? {get set}
     var state: TransactionStateP? {get set}
     var net: Double {get set}
+    var referenceId : Int64 {get set}
+    var reservation: ReservationP? {get set}
+    var touristCardTransaction: TouristCardTransactionP? {get set}
+}
+
+@objc public protocol P2PInfoP {
+    var name : String? {get set}
+    var mobileNumber : String? { get set}
+    var imageAddress : String? {get set}
+    var image : UIImage? {get set}
+}
+
+@objc public protocol TouristCardTransactionP {
+    var id : Int {get set}
+    var terminalType : String? {get set}
+    var rrn : String? {get set}
+    var touristCard : TouristCardP? {get set}
+}
+
+@objc public protocol AmountInUserCurrencyP {
+    var exchangeRate : ExchangeModelP? {get set}
+    var action : String? {get set}
+    var isApproximate : Bool { get set}
+    
+    func string(amount: Double) -> String?
 }
 
 @objc public protocol BankAccountP : DataP {
@@ -191,7 +218,9 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     case exchange = 3
     case cashOut = 4
     case purchase = 5
-    case touristCard = 7
+    case touristCard = 6
+    case TouristCardConsume = 8
+    case reservation = 10
 }
 
 @objc public protocol CurrencyP : DataP, NSObjectProtocol {
@@ -227,6 +256,7 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var expiresIn : NSNumber? {get set}
     var issued : Date? {get set}
     var expires : Date? {get set}
+    var refreshToken : String? {get set}
 }
 
 @objc public protocol ExchangeModelP : DataP {
@@ -288,9 +318,26 @@ public struct InfoStateString {
 @objc public protocol TouristCardP: DataP {
     var pan: String? {get set}
     var expirationDate: Date? {get set}
-    var requested: Bool {get set}
+//    var requested: Bool {get set}
     var stateE : InfoState {get set}
-    var deliveryAddress: AddressP? {get set}
+//    var deliveryAddress: AddressP? {get set}
+    var simorghCardState : String? {get set}
+}
+
+@objc public protocol TouristCardRequestP {
+    var createTime: Date? {get set}
+    var lastUpdateTime: Date? {get set}
+    var userStatus : String? {get set}
+    var infoState : InfoState {get set}
+    var failure: FailureInfoP? {get set}
+    var touristCard: TouristCardP? {get set}
+    var delivery: DeliveryP? {get set}
+}
+
+@objc public protocol DeliveryP {
+    var address : AddressP? {get set}
+    var freightNumber : String? {get set}
+    var deliveryState : String? {get set}
 }
 
 @objc public protocol PayerP: DataP {
@@ -303,10 +350,8 @@ public struct InfoStateString {
 }
 
 @objc public protocol FeeP: DataP {
-    var type: Int {get set}
-    var subType: Int {get set}
     var currency: CurrencyP? {get set}
-    var amount: Double {get set}
+    var amounts: [Double]? {get set}
 }
 
 @objc public protocol FaqP : DataP {
@@ -355,9 +400,10 @@ public struct InfoStateString {
     var postalCode: String? {get set}
     var address: String? {get set}
     var country: CountryP? {get set}
-    var addressDescription: String? {get set}
+//    var addressDescription: String? {get set}
     var lat: String? {get set}
     var long: String? {get set}
+    var addressDetail: String? {get set}
 }
 
 @objc public protocol VerificationStateP: DataP {
