@@ -20,6 +20,7 @@ import CoreData
 @objc public protocol CountryP : DataP {
     
     var name: String? {get set}
+    var originName: String? {get set}
     var id: Int {get set}
     var phoneCode: String? {get set}
     var code : String? {get set}
