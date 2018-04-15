@@ -126,7 +126,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var IBAN : String? {get set}
     var state : String? {get set}
     var stateE: InfoState {get set}
-    var bankName : BankNameP? {get set}
+//    var bankName : BankNameP? {get set}
     var id : Int {get set}
     var currency : CurrencyP? {get set}
     var swiftCode : SwiftCodeP? {get set}
@@ -199,6 +199,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var title : String? {get set}
     var websiteAddress : String? {get set}
     var logo : UIImage? {get set}
+    var logoAddress : String? {get set}
 }
 
 @objc public protocol TransactionTypeP : DataP, NSObjectProtocol {
@@ -263,10 +264,10 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
 @objc public protocol ExchangeModelP : DataP {
     var currentCurrency : CurrencyP? {get set}
     var destinationCurrency : CurrencyP? {get set}
-    var rate : Float {get set}
+    var rate : Double {get set}
     var transactionFee : Float {get set}
     var lastUpdateTime : Date? {get set}
-    func string() -> String 
+    func string(reversed: Bool) -> String 
 }
 
 @objc public enum InfoState : Int {
@@ -340,6 +341,11 @@ public struct InfoStateString {
     var address : AddressP? {get set}
     var freightNumber : String? {get set}
     var deliveryState : String? {get set}
+}
+
+@objc public protocol InstructionP {
+    var title : String? {get set}
+    var description : String? {get set}
 }
 
 @objc public protocol PayerP: DataP {
