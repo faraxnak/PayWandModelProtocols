@@ -132,6 +132,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var swiftCode : SwiftCodeP? {get set}
 //    var institutionNumber: String? {get set}
     var branchFullAddress: String? {get set}
+    var beneficiary: String? {get set}
 //    var branchNumber: String? {get set}
 }
 
@@ -243,7 +244,7 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
 @objc public protocol WalletP : DataP {
     var currency : CurrencyP? {get set}
     var amount : Double {get set}
-    var id : Int {get set}
+//    var id : Int {get set}
     var title : String? {get set}
     var selected : Bool {get set}
     var user : UserP? {get set}
@@ -346,6 +347,14 @@ public struct InfoStateString {
 @objc public protocol InstructionP {
     var title : String? {get set}
     var description : String? {get set}
+}
+
+@objc public protocol AppVersionP {
+    var latestVersion : String? {get set}
+    var latestVersionCode : String? {get set}
+    var url : String? {get set}
+    var releaseNotes : String? {get set}
+    var forceUpdate : Bool {get set}
 }
 
 @objc public protocol PayerP: DataP {
