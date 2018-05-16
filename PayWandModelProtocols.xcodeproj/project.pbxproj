@@ -159,7 +159,7 @@
 					753143FC1E02C77200E11E27 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = F53V3ZJV96;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					753144051E02C77200E11E27 = {
@@ -349,7 +349,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -369,7 +370,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ParsPay.PayWandModelProtocols;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
