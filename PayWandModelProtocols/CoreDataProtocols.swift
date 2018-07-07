@@ -96,6 +96,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var referenceId : Int64 {get set}
     var reservation: ReservationP? {get set}
     var touristCardTransaction: TouristCardTransactionP? {get set}
+    var viewType : String? { get set }
 }
 
 @objc public protocol P2PInfoP {
@@ -215,15 +216,20 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 }
 
 @objc public enum TransactionTypeE : Int {
-    case none = 0
+//    case none = 0
     case topup = 1
-    case send = 2
-    case exchange = 3
-    case cashOut = 4
+    case transfer = 2
+//    case exchange = 3
+    case bankTransfer = 4
     case purchase = 5
-    case touristCard = 6
-    case TouristCardConsume = 8
+    case touristCardRecharge = 6
+    case touristCardDebit = 7
+    case touristCardConsume = 8
+//    case reverse = 9
     case reservation = 10
+//    case inboundTransfer = 11
+    case cashTopup = 12
+    case initialTopup = 13
 }
 
 @objc public protocol CurrencyP : DataP, NSObjectProtocol {
