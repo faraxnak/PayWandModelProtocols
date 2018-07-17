@@ -49,6 +49,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var pin : String? {get set}
     //var postalCode : String? {get set}
     var username : String {get set}
+    var mobileNumber : String? {get set}
     //var country : CountryP? {get set}
     var profileImage : UIImage? {get set}
     var phoneVerificationCode : String? {get set}
@@ -60,6 +61,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var isAccountCreated: Bool {get set}
     var addressInfo: AddressP? {get set}
     var verificationState: VerificationStateP? {get set}
+    var mobileNumberCountry : CountryP? { get set }
 }
 
 
