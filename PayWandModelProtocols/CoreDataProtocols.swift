@@ -62,6 +62,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
     var addressInfo: AddressP? {get set}
     var verificationState: VerificationStateP? {get set}
     var mobileNumberCountry : CountryP? { get set }
+    var phoneNumberCountry : CountryP? { get set }
 }
 
 
