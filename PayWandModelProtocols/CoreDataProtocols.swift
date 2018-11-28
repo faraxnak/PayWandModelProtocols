@@ -222,7 +222,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 //    case none = 0
     case topup = 1
     case transfer = 2
-//    case exchange = 3
+    case exchange = 3
     case bankTransfer = 4
     case purchase = 5
     case touristCardRecharge = 6
@@ -233,6 +233,12 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 //    case inboundTransfer = 11
     case cashTopup = 12
     case initialTopup = 13
+}
+
+@objc public enum WalletStatusE : Int {
+    case none = 0
+    case active = 1
+    case buffer = 2
 }
 
 @objc public protocol CurrencyP : DataP, NSObjectProtocol {
@@ -259,6 +265,8 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var user : UserP? {get set}
     var transactions : [TransactionP]? {get set}
     
+    var status : WalletStatusE {get set}
+    
     func amountString() -> String
 }
 
@@ -278,6 +286,15 @@ public func == (lhs: CurrencyP?, rhs: CurrencyP?) -> Bool {
     var transactionFee : Float {get set}
     var lastUpdateTime : Date? {get set}
     func string(reversed: Bool) -> String 
+}
+
+@objc public protocol ExchangePerformaP {
+    var id : Int {get set}
+    var amount : Double {get set}
+    var resultAmount : Double {get set}
+    var fee : Double {get set}
+    var expiryTime : Date? {get set}
+    var exchangeRate : ExchangeModelP? {get set}
 }
 
 @objc public enum InfoState : Int {
@@ -344,13 +361,20 @@ public struct InfoStateString {
     var infoState : InfoState {get set}
     var failure: FailureInfoP? {get set}
     var touristCard: TouristCardP? {get set}
-    var delivery: DeliveryP? {get set}
+//    var delivery: DeliveryP? {get set}
 }
 
 @objc public protocol DeliveryP {
-    var address : AddressP? {get set}
-    var freightNumber : String? {get set}
+    var id : Int {get set}
+    var contactInfo : String? {get set}
+    var residenceInfo : String? {get set}
+    var isPublic : Bool {get set}
+    var lat : Double {get set}
+    var long: Double {get set}
+//    var address : AddressP? {get set}
+//    var freightNumber : String? {get set}
     var deliveryState : String? {get set}
+    var arrivalDate : Date? {get set}
 }
 
 @objc public protocol InstructionP {
@@ -360,7 +384,7 @@ public struct InfoStateString {
 
 @objc public protocol AppVersionP {
     var latestVersion : String? {get set}
-    var latestVersionCode : String? {get set}
+    var latestVersionCode : Int {get set}
     var url : String? {get set}
     var releaseNotes : String? {get set}
     var forceUpdate : Bool {get set}
