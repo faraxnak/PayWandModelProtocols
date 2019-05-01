@@ -233,6 +233,7 @@ public func == (lhs: CountryP?, rhs: CountryP?) -> Bool {
 //    case inboundTransfer = 11
     case cashTopup = 12
     case initialTopup = 13
+    case registrationFee = 16
 }
 
 @objc public enum WalletStatusE : Int {
